@@ -25,8 +25,12 @@ This project provides a simulation of a video translation backend server and a c
 ### Prerequisites
 
 Install the necessary Python libraries:
+Optionally use an isolated environment with conda
 
 ```bash
+conda create -n new-env python=3.11
+conda activate new-env
+# install the necessary packages
 pip install fastapi uvicorn requests
 ```
 
@@ -49,6 +53,19 @@ You can set the following environment variables to control the server behavior:
 
 ## Client
 The client library (StatusClient) provides a simple way to interact with the server. The library takes in one parameter. 
+
+```bash
+python client.py
+```
+
+or 
+
+```python
+client = StatusClient(base_url="http://localhost:8000")
+status = client.get_status(max_wait_time=60)
+print(f"Job status: {status}")
+```
+
 
 
 | Parameter       | Default Value | Description                                                      |
